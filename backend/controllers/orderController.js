@@ -136,6 +136,7 @@ async function updateStock(id, quantity) {
 }
 
 // Delete Order ---ADMIN
+getThirdCookie();
 exports.deleteOrder = asyncErrorHandler(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
 
