@@ -43,6 +43,8 @@ function Ground() {
   const lastMove = useRef(0)
 
   useFrame((state, delta) => {
+    // Don't update ground if game is over
+    if (mutation.gameOver) return;
 
     if (ship.current) {
       // Alternates moving the two ground planes when we've just passed over onto a new plane, with logic to make sure it only happens once per pass

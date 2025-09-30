@@ -51,6 +51,9 @@ export default function InstancedCubes() {
   );
 
   useFrame((state, delta) => {
+    // Don't update cubes if game is over
+    if (mutation.gameOver) return;
+    
     let isOutsideDiamond = false;
     if (ship.current) {
       if (

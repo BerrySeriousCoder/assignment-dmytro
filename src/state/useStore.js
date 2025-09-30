@@ -30,6 +30,12 @@ const useStore = create((set, get) => {
     setGameStarted: (started) => set((state) => ({ gameStarted: started })),
     setGameOver: (over) => set((state) => ({ gameOver: over })),
     enableMusic: (enabled) => set((state) => ({ musicEnabled: enabled })),
+    endGame: () => {
+      mutation.gameOver = true;
+      mutation.gameSpeed = 0;
+      mutation.desiredSpeed = 0;
+      set((state) => ({ gameOver: true }));
+    },
   };
 });
 
