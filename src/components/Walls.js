@@ -16,7 +16,8 @@ export default function Walls() {
       rightWall.current.position.z = ship.current.position.z
       leftWall.current.position.z = ship.current.position.z
 
-      if (ship.current.position.x <= LEFT_BOUND + (WALL_RADIUS / 2) || ship.current.position.x >= RIGHT_BOUND - (WALL_RADIUS / 2)) {
+      // Only check for collisions if game is not over
+      if (!mutation.gameOver && (ship.current.position.x <= LEFT_BOUND + (WALL_RADIUS / 2) || ship.current.position.x >= RIGHT_BOUND - (WALL_RADIUS / 2))) {
         mutation.gameSpeed = 0
         mutation.gameOver = true
       }

@@ -92,6 +92,13 @@ export default function Hud() {
           <h3 className="center__speedup">SPEED UP</h3>
         </div>
       )}
+      {!isMobile && (
+        <div className="topRight">
+          <div className="escape-instruction">
+            <h4 className="escape-text">Press ESC to quit</h4>
+          </div>
+        </div>
+      )}
       {showControls && (
         <div className="controls">
           <button onTouchStart={() => setLeftPressed(true)} onTouchEnd={() => setLeftPressed(false)} className={`control control__left ${left ? 'control-active' : ''}`}>{'<'}</button>

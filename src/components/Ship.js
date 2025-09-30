@@ -133,7 +133,9 @@ function ShipModel(props, { children }) {
     leftWingTrail.current.scale.y = medSine / 50
 
     // Forward Movement
-    ship.current.position.z -= mutation.gameSpeed * delta * 165
+    if (!mutation.gameOver) {
+      ship.current.position.z -= mutation.gameSpeed * delta * 165
+    }
 
 
     // Lateral Movement

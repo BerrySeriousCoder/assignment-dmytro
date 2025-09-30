@@ -49,7 +49,7 @@ export default function GameState() {
       }
     }
 
-    if (ship.current) {
+    if (ship.current && !mutation.gameOver) {
       // sets the score counter in the hud
       mutation.score = Math.abs(ship.current.position.z) - 10
 

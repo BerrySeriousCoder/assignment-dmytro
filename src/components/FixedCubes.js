@@ -41,6 +41,9 @@ export default function InstancedCubes() {
   );
 
   useFrame((state, delta) => {
+    // Don't update cubes if game is over
+    if (mutation.gameOver) return;
+    
     cubes.forEach((cube, i) => {
       if (ship.current) {
         if (cube.z - ship.current.position.z > -15) {

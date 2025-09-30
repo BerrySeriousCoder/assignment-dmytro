@@ -31,8 +31,17 @@ function useKeys(target, event, up = true) {
 
 export default function KeyboardControls() {
   const set = useStore((state) => state.set)
+  const endGame = useStore((state) => state.endGame)
+  const gameStarted = useStore((state) => state.gameStarted)
+  const gameOver = useStore((state) => state.gameOver)
+  
   useKeys(['ArrowLeft', 'a', 'A'], (left) => set((state) => ({ ...state, controls: { ...state.controls, left } })))
   useKeys(['ArrowRight', 'd', 'D'], (right) => set((state) => ({ ...state, controls: { ...state.controls, right } })))
+  useKeys(['Escape'], (pressed) => {
+    if (pressed && gameStarted && !gameOver) {
+      endGame()
+    }
+  })
 
   return null
 }
